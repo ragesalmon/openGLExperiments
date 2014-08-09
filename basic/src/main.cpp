@@ -17,8 +17,8 @@ void renderScene(void) {
   glVertex3f(cos(angle2), sin(angle2), 0);
   glEnd();
 
-  angle1 += 0.007;
-  angle2 += 0.003;
+  angle1 += 0.0007;
+  angle2 += 0.001;
 
   glutSwapBuffers();
 }
@@ -36,7 +36,7 @@ int main(int argc, char * argv[]) {
   glutInitWindowSize(500, 500);
 
   // Create the window
-  glutCreateWindow("Lmaoooo");
+  glutCreateWindow("BasicGL");
 
   // Set display function
   glutDisplayFunc(renderScene);
