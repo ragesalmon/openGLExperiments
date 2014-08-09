@@ -1,27 +1,31 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <cstdlib>
+#include <ctime>
 #include <GL/glut.h>
+#include <cmath>
 
-float angle = 0.0;
-
+float angle1 = 0.0;
+float angle2 = 0.0;
 
 void renderScene(void) {
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   glLoadIdentity();
 
   glBegin(GL_TRIANGLES);
-  glVertex3f(0.5, -0.5, 0);
-  glVertex3f(0.0, angle, 0.5);
-  glVertex3f(angle, 0.0, 0.5);
+  glVertex3f(sin(angle1), cos(angle2), 0);
+  glVertex3f(sin(angle2), sin(angle1), 0);
+  glVertex3f(cos(angle2), sin(angle2), 0);
   glEnd();
 
-  angle+=0.01;
+  angle1 += 0.007;
+  angle2 += 0.003;
 
   glutSwapBuffers();
 }
 
 int main(int argc, char * argv[]) {
 
+  srand((unsigned)time(0));
   // init glut
   glutInit(&argc, argv);
   // Set display mode
